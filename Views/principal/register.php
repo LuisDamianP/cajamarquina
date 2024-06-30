@@ -23,11 +23,13 @@
                     </div>
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
+
                             <h1 class="fs-4 card-title fw-bold mb-4">Registrarse</h1>
                             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
                                 <div class="mb-3">
-                                    <label class="mb-2 text-muted" for="nombre">Nombre</label>
-                                    <input id="nombre" type="text" class="form-control" name="nombre" value="" required autofocus>
+
+                                    <label for="text"><b>Nombre: (Incluir solo Numeros y Letras)</b></label>
+		                            <input type="text" minlength="3" maxlength="30" placeholder="Incluir de 3 a 30 caracteres" id="nombre" name="form_nombre" required>
                                     <div class="invalid-feedback">
                                         Campo Nombre obligatorio
                                     </div>
