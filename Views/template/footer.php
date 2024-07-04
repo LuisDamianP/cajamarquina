@@ -18,9 +18,9 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Abierto</h4>
                         <h5 class="text-light fw-normal">Lunes - Sábado</h5>
-                        <p>09AM - 09PM</p>
+                        <p>09:00 AM - 09:00 PM</p>
                         <h5 class="text-light fw-normal">Domingo</h5>
-                        <p>10AM - 05PM</p>
+                        <p>10:00 AM - 05:00 PM</p>
                     </div>
                 </div>
             </div>

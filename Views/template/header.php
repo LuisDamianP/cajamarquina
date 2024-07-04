@@ -53,6 +53,6 @@
                         <a href="<?php echo BASE_URL . 'principal/contact' ?>" class="nav-item nav-link">Contacto</a>
                     </div>
                     <a href="<?php echo BASE_URL . 'principal/register' ?>" class="btn btn-primary py-2 px-4" style="margin-right: 10px;">Registrarse</a>
-                    <a href="<?php echo BASE_URL . 'principal/login' ?>" class="btn btn-light py-2 px-4 ">Iniciar Sesión</a>
+                    <a href="<?php echo BASE_URL . 'principal/login_register' ?>" class="btn btn-light py-2 px-4 ">Iniciar Sesión</a>
                 </div>
             </nav>

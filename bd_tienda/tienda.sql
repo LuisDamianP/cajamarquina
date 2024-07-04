@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2024 a las 01:25:03
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 30-06-2024 a las 20:53:08
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,6 +67,31 @@ CREATE TABLE `comprobante` (
   `id_detalle` int(11) NOT NULL,
   `monto_total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuenta`
+--
+
+CREATE TABLE `cuenta` (
+  `COD_CUENTA` int(11) NOT NULL,
+  `NOMBRE` varchar(50) NOT NULL,
+  `APELLIDO` varchar(50) NOT NULL,
+  `DNI` varchar(8) NOT NULL,
+  `USUARIO` varchar(255) NOT NULL,
+  `CORREO` varchar(255) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
+  `PERMISO` int(1) NOT NULL DEFAULT 0,
+  `INTENTOS` int(1) NOT NULL DEFAULT 0,
+  `BLOQUEO` int(1) NOT NULL DEFAULT 0,
+  `NUM_INGRESOS` int(10) NOT NULL DEFAULT 0,
+  `ESTADO` int(1) NOT NULL DEFAULT 0,
+  `FEC_CREACION` datetime NOT NULL DEFAULT current_timestamp(),
+  `FEC_MODIFICACION` datetime NOT NULL DEFAULT current_timestamp(),
+  `FEC_ELIMINACION` datetime NOT NULL DEFAULT current_timestamp(),
+  `FEC_ULTIMOACCESO` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -244,6 +269,12 @@ ALTER TABLE `comprobante`
   ADD KEY `FK_2` (`id_detalle`);
 
 --
+-- Indices de la tabla `cuenta`
+--
+ALTER TABLE `cuenta`
+  ADD PRIMARY KEY (`COD_CUENTA`);
+
+--
 -- Indices de la tabla `detalle_comprobante`
 --
 ALTER TABLE `detalle_comprobante`
@@ -324,6 +355,16 @@ ALTER TABLE `venta`
   ADD KEY `FK_2` (`id_pago`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cuenta`
+--
+ALTER TABLE `cuenta`
+  MODIFY `COD_CUENTA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -382,6 +423,44 @@ ALTER TABLE `usuario`
 ALTER TABLE `venta`
   ADD CONSTRAINT `FK_14_2` FOREIGN KEY (`id_pago`) REFERENCES `pago` (`id_pago`),
   ADD CONSTRAINT `FK_14_3` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre_completo` varchar(100) NOT NULL,
+  `apellido_completo` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `contrasena` varchar(150) NOT NULL,
+  `validar_contrasena` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
