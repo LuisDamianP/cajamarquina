@@ -1,2 +1,2 @@
-# la-cajamarquina
+# cajamarquina
 Proyecto de capstone
